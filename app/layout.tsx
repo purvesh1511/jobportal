@@ -6,6 +6,7 @@ import "../public/css/bootstrap.min.css";
 import "../public/css/style.css";
 import Script from "next/script";
 import Link from "next/link";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,6 +28,8 @@ export default function RootLayout({
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
       </head>
       <body>
+        {/* Toast container */}
+        <Toaster position="top-right" reverseOrder={false} />
         {children}
 
         {/* <!-- Back to Top --> */}

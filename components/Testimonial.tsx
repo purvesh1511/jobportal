@@ -2,8 +2,16 @@
 import { useState, useEffect } from "react";
 
 
+interface TestimonialData {
+    id: number;
+    name: string;
+    profession: string;
+    img: string;
+    text: string;
+}
+
 export default function Testimonial() {
-    const [testimonials, setTestimonials] = useState([]);
+    const [testimonials, setTestimonials] = useState<TestimonialData[]>([]);
     useEffect(() => {
         fetch('/api/testimonial')
             .then(response => response.json())
@@ -22,7 +30,7 @@ export default function Testimonial() {
     }
 
     // Helper for position class
-    const positionClass = (index) => {
+    const positionClass = (index: number) => {
         if (index === 0) return "left";
         if (index === 1) return "center";
         return "right";

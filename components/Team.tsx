@@ -1,8 +1,16 @@
 "use client";
 import { useState, useEffect } from "react";
 
+interface TeamMember {
+    name: string;
+    designation: string;
+    image: string;
+    facebook: string;
+    twitter: string;
+    instagram: string;
+}
 export default function Team({ teamSize }: { teamSize?: number }) {
-    const [teamMembers, setTeamMembers] = useState([]);
+    const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
     useEffect(() => {
         fetch('/api/team')
             .then(response => response.json())

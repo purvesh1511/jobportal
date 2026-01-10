@@ -7,8 +7,24 @@ import toast, { Toaster } from "react-hot-toast";
 interface FormData {
     email: string;
 }
+
+interface ContactData {
+    address: string;
+    phone: string;
+    email: string;
+    companyName: string;
+    designer: string;
+    openingHours: string;
+    socials: {
+        twitter: string;
+        facebook: string;
+        youtube: string;
+        linkedin: string;
+    };
+}
+
 export default function Footer() {
-    const [contact, setContact] = useState(null);
+    const [contact, setContact] = useState<ContactData | null>(null);
     const [errors, setErrors] = useState<Partial<FormData>>({});
     const [loading, setLoading] = useState<boolean>(false); // Button loading state
 
@@ -76,19 +92,18 @@ export default function Footer() {
             {/* <!-- Footer Start --> */}
             <div className="container-fluid bg-dark text-body footer pt-5 wow fadeIn" data-wow-delay="0.1s">
                 <div className="container py-5">
-                    {/* Toast container */}
-                    <Toaster position="top-right" reverseOrder={false} />
+                    
                     <div className="row g-5">
                         <div className="col-lg-3 col-md-6">
                             <h5 className="text-light mb-4">Address</h5>
-                            <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>{contact.address}</p>
-                            <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>{contact.phone}</p>
-                            <p className="mb-2"><i className="fa fa-envelope me-3"></i>{contact.email}</p>
+                            <p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>{contact?.address}</p>
+                            <p className="mb-2"><i className="fa fa-phone-alt me-3"></i>{contact?.phone}</p>
+                            <p className="mb-2"><i className="fa fa-envelope me-3"></i>{contact?.email}</p>
                             <div className="d-flex pt-2">
-                                <Link className="btn btn-square btn-outline-secondary rounded-circle me-1" href={contact.socials.twitter} target="_blank"><i className="fab fa-twitter"></i></Link>
-                                <Link className="btn btn-square btn-outline-secondary rounded-circle me-1" href={contact.socials.facebook} target="_blank"><i className="fab fa-facebook-f"></i></Link>
-                                <Link className="btn btn-square btn-outline-secondary rounded-circle me-1" href={contact.socials.youtube} target="_blank"><i className="fab fa-youtube"></i></Link>
-                                <Link className="btn btn-square btn-outline-secondary rounded-circle me-0" href={contact.socials.linkedin} target="_blank"><i className="fab fa-linkedin-in"></i></Link>
+                                <Link className="btn btn-square btn-outline-secondary rounded-circle me-1" href={contact?.socials?.twitter} target="_blank"><i className="fab fa-twitter"></i></Link>
+                                <Link className="btn btn-square btn-outline-secondary rounded-circle me-1" href={contact?.socials?.facebook} target="_blank"><i className="fab fa-facebook-f"></i></Link>
+                                <Link className="btn btn-square btn-outline-secondary rounded-circle me-1" href={contact?.socials?.youtube} target="_blank"><i className="fab fa-youtube"></i></Link>
+                                <Link className="btn btn-square btn-outline-secondary rounded-circle me-0" href={contact?.socials?.linkedin} target="_blank"><i className="fab fa-linkedin-in"></i></Link>
                             </div>
                         </div>
                         <div className="col-lg-3 col-md-6">
@@ -152,10 +167,10 @@ export default function Footer() {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                                &copy; <a href="#">{contact.companyName}</a>, All Right Reserved.
+                                &copy; <a href="#">{contact?.companyName}</a>, All Right Reserved.
                             </div>
                             <div className="col-md-6 text-center text-md-end">
-                                Designed By <a href="/">{contact.designer}</a>
+                                Designed By <a href="/">{contact?.designer}</a>
                             </div>
                         </div>
                     </div>

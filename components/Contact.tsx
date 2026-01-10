@@ -79,7 +79,6 @@ export default function ContactForm() {
     <div className="container-xxl py-5">
       <div className="container">
         {/* Toast container */}
-        <Toaster position="top-right" reverseOrder={false} />
         
         <div className="text-center mx-auto mb-5 w-max-600">
           <h6 className="section-title bg-white text-primary px-3">Contact Us</h6>

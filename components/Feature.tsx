@@ -18,7 +18,13 @@ export default function Feature() {
                                                 <p className="mb-2">85%</p>
                                             </div>
                                             <div className="progress">
-                                                <div className="progress-bar bg-primary" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div 
+                                                    className="progress-bar bg-primary"
+                                                    role="progressbar"
+                                                    aria-valuenow={85}
+                                                    aria-valuemin={0}
+                                                    aria-valuemax={100}
+                                                ></div>
                                             </div>
                                         </div>
                                     </div>
@@ -29,7 +35,13 @@ export default function Feature() {
                                                 <p className="mb-2">90%</p>
                                             </div>
                                             <div className="progress">
-                                                <div className="progress-bar bg-primary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div 
+                                                    className="progress-bar bg-primary"
+                                                    role="progressbar"
+                                                    aria-valuenow={90}
+                                                    aria-valuemin={0}
+                                                    aria-valuemax={100}
+                                                ></div>
                                             </div>
                                         </div>
                                     </div>
@@ -40,7 +52,13 @@ export default function Feature() {
                                                 <p className="mb-2">95%</p>
                                             </div>
                                             <div className="progress">
-                                                <div className="progress-bar bg-primary" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                                                <div 
+                                                    className="progress-bar bg-primary"
+                                                    role="progressbar"
+                                                    aria-valuenow={95}
+                                                    aria-valuemin={0}
+                                                    aria-valuemax={100}
+                                                ></div>
                                             </div>
                                         </div>
                                     </div>

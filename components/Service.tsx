@@ -2,8 +2,15 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
+interface ServiceData {
+    id: number;
+    service_image: string;
+    service_title: string;
+    service_url: string;
+}
+
 export default function Service() {
-    const [services, setServices] = useState([]);
+    const [services, setServices] = useState<ServiceData[]>([]);
 
     useEffect(() => {
         fetch("/api/service")

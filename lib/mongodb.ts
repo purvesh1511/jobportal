@@ -6,15 +6,32 @@ if (!MONGODB_URI) {
   throw new Error("Please define the MONGODB_URI environment variable");
 }
 
-let cached = global.mongoose as { conn: typeof mongoose | null; promise: Promise<typeof mongoose> | null };
+// ✅ TypeScript now knows this is a string
+const uri: string = MONGODB_URI;
 
-if (!cached) cached = global.mongoose = { conn: null, promise: null };
+type MongooseCache = {
+  conn: typeof mongoose | null;
+  promise: Promise<typeof mongoose> | null;
+};
+
+const globalForMongoose = globalThis as unknown as {
+  mongoose: MongooseCache | undefined;
+};
+
+const cached: MongooseCache =
+  globalForMongoose.mongoose ??
+  (globalForMongoose.mongoose = {
+    conn: null,
+    promise: null,
+  });
 
 export async function connectDB(): Promise<typeof mongoose> {
   if (cached.conn) return cached.conn;
+
   if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI).then((mongoose) => mongoose);
+    cached.promise = mongoose.connect(uri);
   }
+
   cached.conn = await cached.promise;
   return cached.conn;
 }

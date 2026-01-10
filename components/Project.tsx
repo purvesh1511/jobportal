@@ -1,8 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
 
+interface ProjectData {
+    id: number;
+    img: string;
+    title: string;
+    desc: string;
+}
+
 export default function Project() {
-    const [projects, setProjects] = useState([]);
+    const [projects, setProjects] = useState<ProjectData[]>([]);
 
     useEffect(() => {
         // Fetch project data from API

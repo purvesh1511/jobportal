@@ -4,8 +4,23 @@ import Nav from "@/components/Nav";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+interface ContactData {
+    address: string;
+    phone: string;
+    email: string;
+    companyName: string;
+    designer: string;
+    openingHours: string;
+    socials: {
+        twitter: string;
+        facebook: string;
+        youtube: string;
+        linkedin: string;
+    };
+}
+
 export default function Header() {
-    const [contact, setContact] = useState(null);
+    const [contact, setContact] = useState<ContactData | null>(null);
 
     useEffect(() => {
         fetch("/api/contact")
