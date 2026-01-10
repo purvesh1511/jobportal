@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// import "./globals.css";
+import "../public/lib/animate/animate.min.css";
+import "../public/css/bootstrap.min.css";
+import "../public/css/style.css";
+import Script from "next/script";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,10 +19,34 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <head>
+        <title>DGcom - Web Design Agency HTML Template</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+        {/* <!-- Icon Font Stylesheet --> */}
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
+      </head>
+      <body>
         {children}
+
+        {/* <!-- Back to Top --> */}
+        <Link href="#" className="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top">
+          <i className="fas fa-arrow-up"></i>
+        </Link>
+
+
+        {/* <!-- JavaScript Libraries --> */}
+        <Script src="https://code.jquery.com/jquery-3.4.1.min.js" strategy="beforeInteractive" />
+        <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" strategy="beforeInteractive" />
+        <Script src="/lib/wow/wow.min.js" strategy="beforeInteractive" />
+        <Script src="/lib/easing/easing.min.js" strategy="beforeInteractive" />
+        <Script src="/lib/waypoints/waypoints.min.js" strategy="beforeInteractive" />
+        <Script src="lib/counterup/counterup.min.js" strategy="beforeInteractive" />
+        {/* <Script src="/lib/owlcarousel/owl.carousel.min.js" strategy="beforeInteractive" /> */}
+        {/* <Script src="/lib/lightbox/js/lightbox.min.js" strategy="beforeInteractive" /> */}
+
+        {/* <!-- Template JavaScript --> */}
+        <Script src="/js/main.js" strategy="beforeInteractive" />
       </body>
     </html>
   );

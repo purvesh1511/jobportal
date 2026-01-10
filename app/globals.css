@@ -24,3 +24,18 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+.w-max-900 {
+    max-width: 900px !important;
+}
+.w-max-600 {
+    max-width: 600px !important;
+}
+.w-max-400 {
+    max-width: 400px !important;
+}
+
+/* .carousel-item.active .testimonial-col.center .testimonial-item {
+    background: var(--primary) !important;
+} */

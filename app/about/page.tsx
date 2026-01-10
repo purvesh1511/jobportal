@@ -1,28 +1,22 @@
 import Image from "next/image";
 import Header from "@/components/Header";
-import Hero from "@/components/Hero";
 import Fact from "@/components/Fact";
 import About from "@/components/About";
-import Service from "@/components/Service";
 import Feature from "@/components/Feature";
-import Project from "@/components/Project";
 import Team from "@/components/Team";
-import Testimonial from "@/components/Testimonial";
 import Footer from "@/components/Footer";
+import InnerBanner from "@/components/InnerBanner";
 
 
-export default function Home() {
+export default function AboutPage() {
   return (
     <div className="body">
       <Header />
-      <Hero />
+      <InnerBanner name="About Us" />
       <Fact />
       <About />
-      <Service />
       <Feature />
-      <Project />
-      <Team teamSize={3}/>
-      <Testimonial />
+      <Team />
       <Footer />
     </div>
   );
